@@ -7,7 +7,7 @@ function App() {
       <h1>Weather App</h1>
       <footer>
         This project was coded by{" "}
-        <a href="#" target="_blank">
+        <a href="" target="_blank">
           Janet Choe
         </a>{" "}
         and is{" "}
