@@ -1,44 +1,54 @@
 import React from "react";
 import "./Weather.css";
+import { FaSearch } from "react-icons/fa";
+
 export default function Weather() {
   return (
     <div className="Weather">
       <form>
         <div className="row">
-          <div className="col-9">
-            <input
-              type="search"
-              placeholder="Enter a city.."
-              className="form-control"
-            />
-          </div>
-          <div className="col-3">
-            <input type="submit" value="Search" className="btn btn-primary" />
-          </div>
+          <section className="Search">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Type a city.."
+                autoComplete="off"
+              />
+            </div>
+            <div className="col-3">
+              <button className="btn-light">
+                <FaSearch />
+              </button>
+            </div>
+          </section>
         </div>
       </form>
-
-      <h1>Irvine</h1>
-      <ul>
-        <li>Wednesday 07:00</li>
-        <li>Mostly Sunny</li>
-      </ul>
-      <div className="row">
-        <div className="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="Mostly Sunny"
-          />
-          6 ℃
+      <header>
+        <h2>Irvine</h2>
+        <span>Last updated:</span>
+        <h2>Wednesday 19:13</h2>
+      </header>
+      <section className="Overview">
+        <img
+          src="https://openweathermap.org/img/wn/01n@2x.png"
+          alt="Clear Sky"
+        />
+        <h3>Clear Sky</h3>
+      </section>
+      <section className="Current">
+        <div className="row">
+          <div className="col-6">
+            <h1>14℃</h1>
+          </div>
+          <div className="col-6">
+            <ul>
+              <li>Precipitation: 15%</li>
+              <li>Humiditiy: 72%</li>
+              <li>Wind: 13 km/h</li>
+            </ul>
+          </div>
         </div>
-        <div className="col-6">
-          <ul>
-            <li>Precipitation: 0%</li>
-            <li>Humidity: 9%</li>
-            <li>Wind: 26 km/h</li>
-          </ul>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
