@@ -7,19 +7,15 @@ export default function Weather() {
     <div className="Weather">
       <form>
         <div className="row">
-          <section className="Search">
-            <div className="col-9">
-              <input
-                type="search"
-                placeholder="Type a city.."
-                autoComplete="off"
-              />
-            </div>
-            <div className="col-3">
-              <button className="btn-light">
-                <FaSearch />
-              </button>
-            </div>
+          <section className="search">
+            <input
+              type="search"
+              placeholder="Type a city.."
+              autoComplete="off"
+            />
+            <button className="search-icon btn-light">
+              <FaSearch />
+            </button>
           </section>
         </div>
       </form>
@@ -28,20 +24,20 @@ export default function Weather() {
         <span>Last updated:</span>
         <h2>Wednesday 19:13</h2>
       </header>
-      <section className="Overview">
+      <section className="overview">
         <img
           src="https://openweathermap.org/img/wn/01n@2x.png"
           alt="Clear Sky"
         />
         <h3>Clear Sky</h3>
       </section>
-      <section className="Current">
+      <section>
         <div className="row">
           <div className="col-6">
             <h1>14℃</h1>
           </div>
           <div className="col-6">
-            <ul>
+            <ul className="detail">
               <li>Precipitation: 15%</li>
               <li>Humiditiy: 72%</li>
               <li>Wind: 13 km/h</li>

@@ -15,7 +15,7 @@
   font-size: 48px;
 }
 
-.Weather .Overview {
+.Weather .overview {
   margin: 3rem 0 5rem 0;
 }
 
@@ -29,7 +29,24 @@
   padding: 0;
 }
 
-.Weather .Search {
+.Weather input {
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+}
+
+.Weather input:focus {
+  outline: none;
+}
+
+.Weather .search {
   padding: 1rem;
-  display: flex;
+}
+
+.Weather .search-icon {
+  margin-left: 1rem;
+  border-radius: 0.3rem;
+}
+
+.Weather .detail {
+  text-align: left;
 }
