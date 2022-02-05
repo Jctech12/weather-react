@@ -9,6 +9,7 @@
     rgb(58, 85, 148) 90%
   );
   color: #fafafa;
+  text-transform: capitalize;
 }
 
 .Weather h1 {
@@ -49,4 +50,11 @@
 
 .Weather .detail {
   text-align: left;
+}
+
+.Weather .unit {
+  margin-left: 0.5rem;
+  font-size: 1.75rem;
+  position: relative;
+  bottom: 1rem;
 }
