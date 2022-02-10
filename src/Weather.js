@@ -10,15 +10,7 @@ export default function Weather() {
   const [city, setCity] = useState("Irvine");
 
   useEffect(() => {
-    async function fetchData() {
-      const apiKey = "15b01518d9470d65eb96b19937333ceb";
-      let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
-      let weatherData = await axios.get(apiUrl);
-      handleResponse(weatherData);
-      setLoading(false);
-    }
-    fetchData();
+    search();
   }, []);
 
   function handleResponse(response) {
@@ -30,6 +22,7 @@ export default function Weather() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
+      icon: response.data.weather[0].icon,
     });
   }
 

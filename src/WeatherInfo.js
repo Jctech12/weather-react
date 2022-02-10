@@ -13,8 +13,8 @@ export default function WeathrInfo(props) {
       </header>
       <main className="overview">
         <img
-          src="https://openweathermap.org/img/wn/01n@2x.png"
-          alt="Clear Sky"
+          src={`https://openweathermap.org/img/wn/${props.data.icon}@2x.png`}
+          alt="weather-icon"
         />
         <h3>{props.data.description}</h3>
       </main>
