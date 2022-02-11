@@ -12,10 +12,6 @@
   text-transform: capitalize;
 }
 
-.Weather h1 {
-  font-size: 48px;
-}
-
 .Weather .overview {
   margin: 3rem 0 5rem 0;
 }

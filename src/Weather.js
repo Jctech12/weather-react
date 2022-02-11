@@ -8,10 +8,35 @@ export default function Weather() {
   const [loading, setLoading] = useState(true);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("Irvine");
+  const [unit, setUnit] = useState("imperial");
 
   useEffect(() => {
     search();
   }, []);
+
+  function convertUnit() {
+    let currentTemp;
+    let currentWindSpeed;
+    let convertedUnit;
+    if (unit === "imperial") {
+      //currentTemp is imperial
+      //convert to metric
+      currentTemp = Math.round((weatherData.temperature - 32) * (5 / 9));
+      currentWindSpeed = Math.round(weatherData.wind * 1.609344);
+      convertedUnit = "metric";
+    } else {
+      currentTemp = Math.round(weatherData.temperature * (9 / 5) + 32);
+      currentWindSpeed = Math.round(weatherData.wind * 0.621371);
+      convertedUnit = "imperial";
+    }
+    setWeatherData({
+      ...weatherData,
+      temperature: currentTemp,
+      wind: currentWindSpeed,
+      unit: convertedUnit,
+    });
+    setUnit(convertedUnit);
+  }
 
   function handleResponse(response) {
     console.log(response.data);
@@ -23,13 +48,14 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       icon: response.data.weather[0].icon,
+      unit: unit,
     });
   }
 
   async function search() {
     setLoading(true);
     const apiKey = "15b01518d9470d65eb96b19937333ceb";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
     let weatherData = await axios.get(apiUrl);
     handleResponse(weatherData);
@@ -65,7 +91,7 @@ export default function Weather() {
             </section>
           </div>
         </form>{" "}
-        <WeatherInfo data={weatherData} />
+        <WeatherInfo data={weatherData} convertUnit={convertUnit} />
       </div>
     );
   }

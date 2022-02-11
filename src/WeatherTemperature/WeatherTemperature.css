@@ -1,0 +1,21 @@
+.WeatherTemperature > h5 {
+  text-align: right;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+h5 > span {
+  color: white;
+}
+
+a,
+a:hover {
+  color: rgb(0, 162, 255);
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.8rem;
+}
