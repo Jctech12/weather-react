@@ -3,6 +3,7 @@ import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 import { FaSearch } from "react-icons/fa";
+import WeatherForecast from "./WeatherForecast/WeatherForecast";
 
 export default function Weather() {
   const [loading, setLoading] = useState(true);
@@ -47,7 +48,7 @@ export default function Weather() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
-      icon: response.data.weather[0].icon,
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       unit: unit,
     });
   }
@@ -92,6 +93,7 @@ export default function Weather() {
           </div>
         </form>{" "}
         <WeatherInfo data={weatherData} convertUnit={convertUnit} />
+        <WeatherForecast icon={weatherData.icon} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 .Weather {
   border: 1px solid #dadde1;
   border-radius: 5px;
-  margin: 30px auto 10px;
+  margin: 10px auto 10px;
   padding: 20px;
   background: radial-gradient(
     circle at 1.8% 4.8%,
@@ -13,11 +13,12 @@
 }
 
 .Weather .overview {
-  margin: 3rem 0 5rem 0;
+  margin: 2rem 0;
 }
 
 .overview h3 {
-  margin-top: 1.5rem;
+  margin-top: 0.3rem;
+  font-size: 1.8rem;
 }
 
 .Weather ul {

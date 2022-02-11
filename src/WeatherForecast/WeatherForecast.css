@@ -1,0 +1,21 @@
+.WeatherForecast {
+  margin-top: 1rem;
+}
+
+.WeatherForecast h6 {
+  color: white;
+  margin: 0 auto;
+  font-size: 1.3rem;
+}
+
+.WeatherForecast img {
+  height: 3.5rem;
+}
+
+.WeatherForecast .forecast-temp {
+  font-size: 1.2rem;
+}
+
+.WeatherForecast .max-temp {
+  font-weight: bold;
+}
