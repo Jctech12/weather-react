@@ -32,7 +32,6 @@ export default function WeatherTemperature(props) {
     props.convertUnit();
   }
 
-  // if (unit === "fahrenheit") {
   return (
     <section className="WeatherTemperature">
       {props.unit === "imperial" ? (
@@ -69,33 +68,4 @@ export default function WeatherTemperature(props) {
       </div>
     </section>
   );
-  // } else {
-  //   return (
-  //     <section className="WeatherTemperature">
-  //       <h5 className="units">
-  //         ℃ |{" "}
-  //         <a href="/" onClick={showFahrenheit}>
-  //           ℉{" "}
-  //         </a>
-  //       </h5>
-  //       <div className="row">
-  //         <div className="col-6">
-  //           <h1>
-  //             {props.}
-  //             <span> ℃</span>
-  //           </h1>
-  //         </div>
-  //         <div className="col-6">
-  //           <ul className="detail">
-  //             <li>Humidity: {props.humidity} %</li>
-  //             <li>
-  //               Wind: {props.wind}
-  //               <span className="text-lowercase"> mph</span>
-  //             </li>
-  //           </ul>
-  //         </div>
-  //       </div>
-  //     </section>
-  //   );
-  // }
 }
