@@ -50,14 +50,14 @@ export default function Weather() {
       date: new Date(response.data.dt * 1000),
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       unit: unit,
+      coordinates: response.data.coord,
     });
   }
 
   async function search() {
     setLoading(true);
-    const apiKey = "15b01518d9470d65eb96b19937333ceb";
+    const apiKey = "9d810a106b4ee5afaa273ffbc1fc9a05";
     let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
     let weatherData = await axios.get(apiUrl);
     handleResponse(weatherData);
     setLoading(false);
@@ -93,7 +93,10 @@ export default function Weather() {
           </div>
         </form>{" "}
         <WeatherInfo data={weatherData} convertUnit={convertUnit} />
-        <WeatherForecast icon={weatherData.icon} />
+        <WeatherForecast
+          icon={weatherData.icon}
+          coordinates={weatherData.coordinates}
+        />
       </div>
     );
   }
