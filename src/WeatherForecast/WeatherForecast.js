@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./WeatherForecast.css";
+import WeatherForecastDay from "../WeatherForecastDay/WeatherForecastDay";
 import axios from "axios";
-import moment from "moment";
 
 export default function WeatherForecast(props) {
   const [loading, setLoading] = useState(true);
@@ -25,7 +25,6 @@ export default function WeatherForecast(props) {
     let forecastData = await axios.get(apiUrl);
     handleResponse(forecastData);
     setLoading(false);
-    console.log(moment(1644696000 * 1000).format("ddd"));
   }
 
   if (loading) {
@@ -35,12 +34,7 @@ export default function WeatherForecast(props) {
       <div className="WeatherForecast">
         <div className="row">
           <div className="col-4">
-            <h6 className="forecast-day">Sat</h6>
-            <img src={props.icon} alt="forecast-icon" />
-            <section className="forecast-temp">
-              <span className="max-temp">19 </span>
-              <span className="min-temp">10</span>
-            </section>
+            <WeatherForecastDay forecastData={forecastData} icon={props.icon} />
           </div>
         </div>
       </div>
