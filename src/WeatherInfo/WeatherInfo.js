@@ -1,5 +1,5 @@
-import FormattedDate from "./FormattedDate";
-import WeatherTemperature from "./WeatherTemperature/WeatherTemperature";
+import WeatherTemperature from "../WeatherTemperature/WeatherTemperature";
+import "./WeatherInfo.css";
 
 export default function WeathrInfo(props) {
   return (
@@ -8,7 +8,8 @@ export default function WeathrInfo(props) {
         <h2>{props.data.city}</h2>
         <span>Last updated:</span>
         <h2>
-          <FormattedDate date={props.data.date} />
+          {props.data.date.format("dddd hh:mm")}{" "}
+          <span className="ampm">{props.data.date.format("a")}</span>
         </h2>
       </header>
       <main className="overview">

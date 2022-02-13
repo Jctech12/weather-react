@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
+import moment from "moment";
 
 export default function WeatherForecast(props) {
   const [loading, setLoading] = useState(true);
-  let [forecastData, setForecastData] = useState({});
+  let [forecastData, setForecastData] = useState([]);
 
   useEffect(() => {
     forecastSearch();
@@ -17,13 +18,14 @@ export default function WeatherForecast(props) {
 
   async function forecastSearch() {
     setLoading(true);
-    const apiKey = "9d810a106b4ee5afaa273ffbc1fc9a05";
+    const apiKey = "15b01518d9470d65eb96b19937333ceb";
     let latitude = props.coordinates.lat;
     let longtitude = props.coordinates.lon;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=imperial`;
     let forecastData = await axios.get(apiUrl);
     handleResponse(forecastData);
     setLoading(false);
+    console.log(moment(1644696000 * 1000).format("ddd"));
   }
 
   if (loading) {

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import WeatherInfo from "./WeatherInfo";
-import axios from "axios";
-import "./Weather.css";
-import { FaSearch } from "react-icons/fa";
+import WeatherInfo from "./WeatherInfo/WeatherInfo";
 import WeatherForecast from "./WeatherForecast/WeatherForecast";
+import "./Weather.css";
+import axios from "axios";
+import { FaSearch } from "react-icons/fa";
+import moment from "moment";
 
 export default function Weather() {
   const [loading, setLoading] = useState(true);
@@ -47,7 +48,7 @@ export default function Weather() {
       city: response.data.name,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
+      date: moment(response.data.dt * 1000),
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       unit: unit,
       coordinates: response.data.coord,
@@ -56,7 +57,7 @@ export default function Weather() {
 
   async function search() {
     setLoading(true);
-    const apiKey = "9d810a106b4ee5afaa273ffbc1fc9a05";
+    const apiKey = "15b01518d9470d65eb96b19937333ceb";
     let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     let weatherData = await axios.get(apiUrl);
     handleResponse(weatherData);
