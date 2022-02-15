@@ -33,9 +33,18 @@ export default function WeatherForecast(props) {
     return (
       <div className="WeatherForecast">
         <div className="row">
-          <div className="col-4">
-            <WeatherForecastDay forecastData={forecastData} icon={props.icon} />
-          </div>
+          {forecastData.map((forecast, index) => {
+            if (index < 3) {
+              return (
+                <div key={index} className="col-4">
+                  <WeatherForecastDay
+                    forecastData={forecast}
+                    icon={forecast.weather[0].icon}
+                  />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     );
