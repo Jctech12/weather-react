@@ -9,7 +9,7 @@ export default function WeatherForecast(props) {
 
   useEffect(() => {
     forecastSearch();
-  }, []);
+  }, [props.unit]);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -21,8 +21,9 @@ export default function WeatherForecast(props) {
     const apiKey = "15b01518d9470d65eb96b19937333ceb";
     let latitude = props.coordinates.lat;
     let longtitude = props.coordinates.lon;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=${props.unit} `;
     let forecastData = await axios.get(apiUrl);
+    console.log(forecastData);
     handleResponse(forecastData);
     setLoading(false);
   }
@@ -40,6 +41,7 @@ export default function WeatherForecast(props) {
                   <WeatherForecastDay
                     forecastData={forecast}
                     icon={forecast.weather[0].icon}
+                    unit={props.unit}
                   />
                 </div>
               );

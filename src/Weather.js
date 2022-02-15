@@ -97,6 +97,7 @@ export default function Weather() {
         <WeatherForecast
           icon={weatherData.icon}
           coordinates={weatherData.coordinates}
+          unit={unit}
         />
       </div>
     );
