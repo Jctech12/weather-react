@@ -58,7 +58,7 @@ export default function Weather() {
   async function search() {
     setLoading(true);
     const apiKey = "15b01518d9470d65eb96b19937333ceb";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     let weatherData = await axios.get(apiUrl);
     handleResponse(weatherData);
     setLoading(false);
