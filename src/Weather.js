@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import WeatherInfo from "./WeatherInfo/WeatherInfo";
 import WeatherForecast from "./WeatherForecast/WeatherForecast";
+import WeatherSearch from "./WeatherSearch/WeatherSearch";
 import "./Weather.css";
 import axios from "axios";
-import { FaSearch } from "react-icons/fa";
 import moment from "moment";
 
 export default function Weather() {
   const [loading, setLoading] = useState(true);
   const [weatherData, setWeatherData] = useState({});
-  const [city, setCity] = useState("Irvine");
+
   const [unit, setUnit] = useState("imperial");
 
   useEffect(() => {
@@ -41,7 +41,6 @@ export default function Weather() {
   }
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       temperature: Math.round(response.data.main.temp),
       wind: Math.round(response.data.wind.speed),
@@ -55,7 +54,7 @@ export default function Weather() {
     });
   }
 
-  async function search() {
+  async function search(city = "Irvine") {
     setLoading(true);
     const apiKey = "15b01518d9470d65eb96b19937333ceb";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
@@ -64,13 +63,9 @@ export default function Weather() {
     setLoading(false);
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event, city) {
     event.preventDefault();
-    search();
-  }
-
-  function handleCityChange(event) {
-    setCity(event.target.value);
+    search(city);
   }
 
   if (loading) {
@@ -78,21 +73,7 @@ export default function Weather() {
   } else {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <section className="search">
-              <input
-                type="search"
-                placeholder="Type a city.."
-                autoComplete="off"
-                onChange={handleCityChange}
-              />
-              <button className="search-icon btn-light">
-                <FaSearch />
-              </button>
-            </section>
-          </div>
-        </form>{" "}
+        <WeatherSearch handleSubmit={handleSubmit} />
         <WeatherInfo data={weatherData} convertUnit={convertUnit} />
         <WeatherForecast
           icon={weatherData.icon}

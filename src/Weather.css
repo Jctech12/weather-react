@@ -1,14 +1,27 @@
+:root {
+  --primary-color: #fafafa;
+  --secondary-color: rgb(236, 110, 76);
+}
+
 .Weather {
   border: 1px solid #dadde1;
   border-radius: 5px;
   margin: 10px auto 10px;
   padding: 20px;
-  background: radial-gradient(
-    circle at 1.8% 4.8%,
-    rgb(17, 23, 58) 0%,
-    rgb(58, 85, 148) 90%
+  /* background: radial-gradient(
+    circle at 12.3% 19.3%,
+    rgb(85, 88, 218) 0%,
+    rgb(95, 209, 249) 100.2%
+  ); */
+
+  background: linear-gradient(
+    to bottom,
+    rgb(21, 74, 189) 10%,
+    rgb(26, 138, 211) 80.5%,
+    rgb(72, 177, 234) 100.2%
   );
-  color: #fafafa;
+
+  color: var(--primary-color);
   text-transform: capitalize;
 }
 
@@ -31,24 +44,6 @@
   padding: 0;
 }
 
-.Weather input {
-  border-radius: 0.3rem;
-  padding: 0.3rem;
-}
-
-.Weather input:focus {
-  outline: none;
-}
-
-.Weather .search {
-  padding: 1rem;
-}
-
-.Weather .search-icon {
-  margin-left: 1rem;
-  border-radius: 0.3rem;
-}
-
 .Weather .detail {
   text-align: left;
 }
@@ -58,4 +53,8 @@
   font-size: 1.75rem;
   position: relative;
   bottom: 1rem;
+}
+
+.number {
+  font-family: "Poppins", sans-serif;
 }

@@ -3,7 +3,7 @@
 }
 
 .WeatherForecast h6 {
-  color: white;
+  color: var(--primary-color);
   margin: 0 auto;
   font-size: 1.3rem;
 }

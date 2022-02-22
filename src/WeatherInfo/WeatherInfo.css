@@ -1,3 +1,7 @@
 .WeatherInfo .ampm {
   text-transform: lowercase;
 }
+
+.WeatherInfo h2 {
+  font-size: 1.9rem;
+}

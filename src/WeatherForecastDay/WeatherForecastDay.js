@@ -13,10 +13,10 @@ export default function WeatherForecastDay(props) {
           alt="forecast-icon"
         />
         <div>
-          <span className="max-temp">
+          <span className="max-temp number">
             {Math.round(props.forecastData.temp.max)}{" "}
           </span>
-          <span className="min-temp">
+          <span className="min-temp number">
             {Math.round(props.forecastData.temp.min)}
           </span>
         </div>

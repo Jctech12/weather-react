@@ -36,7 +36,7 @@ export default function WeatherTemperature(props) {
     <section className="WeatherTemperature">
       {props.unit === "imperial" ? (
         <h5 className="units">
-          <a href="/" onClick={toggleUnit}>
+          <a id="unit-link" href="/" onClick={toggleUnit}>
             ℃{" "}
           </a>
           <span>|</span> ℉
@@ -44,23 +44,25 @@ export default function WeatherTemperature(props) {
       ) : (
         <h5 className="units">
           ℃ <span>|</span>{" "}
-          <a href="/" onClick={toggleUnit}>
+          <a id="unit-link" href="/" onClick={toggleUnit}>
             ℉{" "}
           </a>
         </h5>
       )}
       <div className="row">
         <div className="col-6">
-          <h1>
+          <h1 className="number">
             {props.temperature}
             <span>{tempUnit}</span>
           </h1>
         </div>
         <div className="col-6">
           <ul className="detail">
-            <li>Humidity: {props.humidity} %</li>
             <li>
-              Wind: {props.wind}
+              Humidity: <span className="number">{props.humidity} </span>%
+            </li>
+            <li>
+              Wind: <span className="number">{props.wind}</span>
               <span className="text-lowercase"> {windUnit}</span>
             </li>
           </ul>

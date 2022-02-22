@@ -7,7 +7,7 @@ export default function WeathrInfo(props) {
       <header>
         <h2>{props.data.city}</h2>
         <span>Last updated:</span>
-        <h2>
+        <h2 className="number">
           {props.data.date.format("dddd hh:mm")}{" "}
           <span className="ampm">{props.data.date.format("a")}</span>
         </h2>
